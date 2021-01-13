@@ -31,6 +31,7 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
     && rm -rf /tmp/* /var/tmp/*
 
 COPY rootfs /
+RUN chmod +x /etc/services.d/homeseer/shutdown
 
 ARG AVAHI
 RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)

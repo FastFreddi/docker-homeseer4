@@ -1,0 +1,18 @@
+!/usr/bin/execlineb -P
+
+# TERM broadcast is ignored in order to shut down gracefully,
+
+trap
+{
+  term
+  {
+    echo [run homeseer] TERM received
+  }
+  hup
+  {
+    echo [run homeseer] HUP received
+  }
+}
+
+cd /HomeSeer
+./shutdown

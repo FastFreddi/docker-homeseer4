@@ -2,7 +2,7 @@
 
 # wait for services to come up
 sleep 2
-
+cp /etc/service.d/hs_shutdown/shutdown /HomeSeer
 echo "Starting HomeSeer..."
 cd /HomeSeer
 exec mono ./HSConsole.exe --log

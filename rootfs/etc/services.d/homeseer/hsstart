@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -o pipefail
 # wait for services to come up
 sleep 2
 echo "Starting HomeSeer..."

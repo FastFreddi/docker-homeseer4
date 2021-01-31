@@ -3,6 +3,6 @@
 echo "[homeseer] starting graceful shutdown"
 
 cd /HomeSeer
-./hsstop.sh
+./hsstop
 
 echo "[homeseer] shut down"

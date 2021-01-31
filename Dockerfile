@@ -1,6 +1,7 @@
 FROM mono:latest
 
 ENV S6_VERSION=v1.21.4.0
+ENV S6_SERVICES_GRACETIME 20000
 ENV LANG=en_US.UTF-8
 ENV HOMESEER_VERSION=4_1_9_0
 
@@ -31,6 +32,10 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
     && rm -rf /tmp/* /var/tmp/*
 
 COPY rootfs /
+RUN chmod +x /etc/services.d/homeseer/hsstart \
+    chmod +x /etc/services.d/homeseer/hsstop \
+    chmod +x /etc/cont-finish.d/hsdown
+
 
 ARG AVAHI
 RUN [ "${AVAHI:-1}" = "1" ] || (echo "Removing Avahi" && rm -rf /etc/services.d/avahi /etc/services.d/dbus)

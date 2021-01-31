@@ -1,9 +1,15 @@
-#!/usr/bin/with-contenv sh
+#!/usr/bin/execlineb -P
 
-# wait for services to come up
-sleep 2
-cp /etc/service.d/homeseer/shutdown /HomeSeer
-echo "Starting HomeSeer..."
-cd /HomeSeer
-exec mono ./HSConsole.exe --log
+trap
+{
+  term
+  {
+    echo [run homeseer] TERM received
+  }
+  hup
+  {
+    echo [run homeseer] HUP received
+  }
+}
 
+with-contenv ./.command

@@ -12,4 +12,8 @@ trap
   }
 }
 
-with-contenv ./hsstart
+with-contenv 
+sleep 2
+echo "Starting HomeSeer..."
+cd /HomeSeer
+exec mono ./HSConsole.exe --log

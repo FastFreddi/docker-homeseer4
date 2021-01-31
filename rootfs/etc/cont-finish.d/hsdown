@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "[homeseer] starting graceful shutdown"
+
+cd /HomeSeer
+./hsstop
+
+echo "[homeseer] shut down"

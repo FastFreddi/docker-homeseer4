@@ -1,5 +1,5 @@
 #!/bin/bash
-# hsstop - stop the HS application
+# hsstop.sh - stop the HS application
 # supports: systemd service shutdown
 
 # import login credentials used to login to web server
@@ -20,8 +20,7 @@ webport=$(awk -F= '\
 # send application shutdown command
 for i in $(seq 1 5)
 do
-    curl -f -s -o /dev/null ${login:+-u} $login --data 'ConfirmShutdownhs=Yes' "
-http://localhost:$webport/LinuxTools"
+    curl -f -s -o /dev/null ${login:+-u} $login --data 'ConfirmShutdownhs=Yes' "http://localhost:$webport/LinuxTools"
     rc=$?
     test $rc -eq 0 && break
     sleep 2

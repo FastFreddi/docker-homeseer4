@@ -12,4 +12,4 @@ trap
   }
 }
 
-with-contenv ./.command
+with-contenv ./.hsstart

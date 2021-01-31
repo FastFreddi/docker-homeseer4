@@ -7,21 +7,3 @@ echo "Starting HomeSeer..."
 cd /HomeSeer
 exec mono ./HSConsole.exe --log
 
-!/usr/bin/execlineb -P
-
-# TERM broadcast is ignored in order to shut down gracefully,
-
-trap
-{
-  term
-  {
-    echo [run homeseer] TERM received
-  }
-  hup
-  {
-    echo [run homeseer] HUP received
-  }
-}
-
-cd /HomeSeer
-./shutdown

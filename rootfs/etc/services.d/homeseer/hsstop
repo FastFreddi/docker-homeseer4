@@ -1,5 +1,5 @@
 #!/bin/bash
-# hsstop.sh - stop the HS application
+# hsstop - stop the HS application
 # supports: systemd service shutdown
 
 # import login credentials used to login to web server

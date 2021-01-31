@@ -33,8 +33,8 @@ RUN tar xzf /tmp/s6-overlay-amd64.tar.gz -C / \
 
 COPY rootfs /
 RUN chmod +x /etc/services.d/homeseer/hsstart \
-    chmod +x /etc/services.d/homeseer/hsstop \
-    chmod +x /etc/cont-finish.d/hsdown
+    && chmod +x /etc/services.d/homeseer/hsstop \
+    && chmod +x /etc/cont-finish.d/hsdown
 
 
 ARG AVAHI
